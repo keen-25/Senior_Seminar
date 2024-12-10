@@ -14,8 +14,8 @@ extends CharacterBody2D
 #@onready var quest_manager = get_tree().get_root().get_node("QuestManager")
 
 signal food_collected
-signal hammer_collected
-signal crowbar_collected
+signal manuel_collected
+signal rock_collected
 
 var in_locker=false
 
@@ -104,18 +104,18 @@ func _process(delta):
 func collect(item):
 	inventory.insert(item)
 	print(item)
-	if str(item) == "<Resource#-9223371992462260730>": #"apple"
+	
+	if str(item) == "<Resource#-9223371994341309027>": #"apple"
 		print("picked up food")
 		emit_signal("food_collected")
-	if str(item) == "<Resource>": #"note"
-		print("picked up food")
-		emit_signal("note_collected")
-	if str(item) == "<Resource#-9223371990918756800>": #"crowbar"
-		print("picked up crowbar")
-		emit_signal("crowbar_collected")
-	if str(item) == "<Resource#-9223371991774394823>": #"hammer"
-		print("picked up hammer")
-		emit_signal("hammer_collected")
-	
+		
+	if str(item) == "<Resource#-9223371965786487037>": #"manuel"
+		print("picked up manuel")
+		emit_signal("manuel_collected")
+		
+	if str(item) == "<Resource#-9223371967447431439>": #"rock"
+		print("picked up rock")
+		emit_signal("rock_collected")
+
 func player():
 	pass

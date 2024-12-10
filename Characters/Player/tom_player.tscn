@@ -1,11 +1,9 @@
-[gd_scene load_steps=42 format=3 uid="uid://bim33tmhe21eq"]
+[gd_scene load_steps=40 format=3 uid="uid://bim33tmhe21eq"]
 
 [ext_resource type="Script" path="res://scripts/Npc:Player Code/tom2_movementattr.gd" id="1_mp2i4"]
 [ext_resource type="Texture2D" uid="uid://cuvs474bg703b" path="res://Assets/Tom Character/char_a_p1/char_a_p1_0bas_humn_v01.png" id="1_uvmb0"]
 [ext_resource type="Resource" uid="uid://wcj1o6ska6f3" path="res://Inventory/Tres/playerinv.tres" id="2_bmxrb"]
 [ext_resource type="Script" path="res://scripts/Npc:Player Code/Stamina.gd" id="3_17cbt"]
-[ext_resource type="Script" path="res://Inventory/Inventory Code/hotbar.gd" id="4_jcyeg"]
-[ext_resource type="Script" path="res://Inventory/Inventory Code/inv_ui.gd" id="5_iv5q8"]
 [ext_resource type="PackedScene" uid="uid://b7t6xd2jywprw" path="res://Inventory/Inventory Scene/Hotbar.tscn" id="5_xwrck"]
 [ext_resource type="Texture2D" uid="uid://d1uqpfs3d36qr" path="res://Assets/Items/32x32 textures (19).png" id="6_kdv1m"]
 [ext_resource type="Script" path="res://scripts/Item Code/label.gd" id="7_0rxl6"]
@@ -278,7 +276,6 @@ offset_top = 167.0
 offset_right = -313.0
 offset_bottom = 187.0
 grow_vertical = 0
-script = ExtResource("4_jcyeg")
 
 [node name="Inv_UI" parent="." instance=ExtResource("7_cnjgb")]
 anchors_preset = 2
@@ -289,7 +286,6 @@ offset_top = 105.0
 offset_right = -218.0
 offset_bottom = 181.0
 grow_vertical = 0
-script = ExtResource("5_iv5q8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_uvmb0")

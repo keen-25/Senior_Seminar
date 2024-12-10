@@ -14,6 +14,8 @@ var player_in_chat_zone = false
 
 @export var npc_name: String
 
+signal npc_interacted(npc_name: String)
+
 enum {
 	IDLE,
 	NEW_DIR,
@@ -77,6 +79,7 @@ func _on_chat_detection_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player = body
 		player_in_chat_zone = true
+		emit_signal("npc_interacted", npc_name)
 	
 
 
@@ -101,5 +104,13 @@ func _on_npc_quest_quest_menu_closed() -> void:
 	is_roaming = true
 	
 
-func _on_player_tom_food_collected() -> void:
+func _on_player_tom_2_food_collected() -> void:
 	$npc_quest.food_collected()
+
+
+func _on_player_tom_2_manuel_collected() -> void:
+	$npc_quest.manuel_collected()
+
+
+func _on_player_tom_2_rock_collected() -> void:
+	$npc_quest.rock_collected()

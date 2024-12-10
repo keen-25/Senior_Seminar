@@ -1,8 +1,7 @@
-[gd_scene load_steps=36 format=3 uid="uid://bstrsjocymsdl"]
+[gd_scene load_steps=35 format=3 uid="uid://bstrsjocymsdl"]
 
 [ext_resource type="PackedScene" uid="uid://bopx1qul17w6c" path="res://Characters/NPCs/Roger.tscn" id="1_d8ck5"]
 [ext_resource type="Texture2D" uid="uid://dnn2fdegjwew3" path="res://Assets/Modern tiles_Free/Characters_free/Adam_idle_anim_16x16.png" id="2_eddma"]
-[ext_resource type="Script" path="res://scripts/Npc:Player Code/new_npc.gd" id="2_mo5tx"]
 [ext_resource type="Texture2D" uid="uid://bmmpd1kmdhwou" path="res://Assets/Modern tiles_Free/Characters_free/Adam_run_16x16.png" id="3_gew5i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c8wug"]
@@ -244,15 +243,8 @@ animations = [{
 }]
 
 [node name="Kevin" instance=ExtResource("1_d8ck5")]
-script = ExtResource("2_mo5tx")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_yhwpd")
 animation = &"walk_w"
 frame_progress = 0.0
-
-[node name="Dialouge" parent="." index="4"]
-script = null
-
-[node name="npc_quest" parent="." index="5"]
-script = null

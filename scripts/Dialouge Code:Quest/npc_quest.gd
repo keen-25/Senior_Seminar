@@ -13,6 +13,19 @@ var food = false
 var manuel = false
 var rock = false
 
+@export var active_npc_name: String = ""  # Store the active NPC name
+
+
+func _ready() -> void:
+	# Connect the signal from the NPC script
+	for npc in get_tree().get_nodes_in_group("npcs"):  # Assuming you have an "npcs" group
+		npc.connect("npc_interacted", Callable(self, "_on_npc_interacted"))
+
+func on_npc_interacted(npc_name: String) -> void:
+	print("here")
+	active_npc_name = npc_name  # Set the active NPC name
+	print(active_npc_name)
+
 func _process(delta: float) -> void:
 	if quest1_active:
 		if food == true:
@@ -81,7 +94,7 @@ func next_quest(npc_name):
 func _on_yes_1_pressed() -> void:
 	$quest1_ui.visible = false
 	quest1_active = true
-	#food = false
+	food = false
 	emit_signal("quest_menu_closed")
 
 func _on_no_1_pressed() -> void:
@@ -94,7 +107,7 @@ func _on_no_1_pressed() -> void:
 func _on_yes_2_pressed() -> void:
 	$quest_ui2.visible = false
 	quest2_active = true
-	#food = false
+	rock = false
 	emit_signal("quest_menu_closed")
 
 func _on_no_2_pressed() -> void:
@@ -107,7 +120,7 @@ func _on_no_2_pressed() -> void:
 func _on_yes_3_pressed() -> void:
 	$quest_ui3.visible = false
 	quest1_active = true
-	#food = false
+	manuel = false
 	emit_signal("quest_menu_closed")
 	
 func _on_no_3_pressed() -> void:
@@ -126,15 +139,15 @@ func rock_collected():
 	rock = true
 
 func play_finish_quest():
-	if food == true:
+	if quest1_completed == true:
 		$complete.visible = true
 		await get_tree().create_timer(10).timeout
 		$complete.visible = false
-	if rock == true:
+	if quest2_completed == true:
 		$complete2.visible = true
 		await get_tree().create_timer(10).timeout
 		$complete2.visible = false
-	if manuel == true:
+	if quest3_completed == true:
 		$complete3.visible = true
 		await get_tree().create_timer(10).timeout
 		$complete3.visible = false
